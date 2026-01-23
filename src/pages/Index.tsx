@@ -1,12 +1,60 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect, useState, useCallback } from "react";
+import ProgressBar from "@/components/portfolio/ProgressBar";
+import SidebarNav from "@/components/portfolio/SidebarNav";
+import FloatingNavButton from "@/components/portfolio/FloatingNavButton";
+import HeroSection from "@/components/portfolio/HeroSection";
+import Level100 from "@/components/portfolio/Level100";
+import Level200 from "@/components/portfolio/Level200";
+import Level300 from "@/components/portfolio/Level300";
+import Level400 from "@/components/portfolio/Level400";
+import Level500 from "@/components/portfolio/Level500";
 
 const Index = () => {
+  const [activeLevel, setActiveLevel] = useState(100);
+
+  const handleLevelClick = useCallback((level: number) => {
+    const element = document.getElementById(`level-${level}`);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
+  const handleScrollToFirst = useCallback(() => {
+    handleLevelClick(100);
+  }, [handleLevelClick]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const levels = [100, 200, 300, 400, 500];
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (let i = levels.length - 1; i >= 0; i--) {
+        const element = document.getElementById(`level-${levels[i]}`);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveLevel(levels[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="relative min-h-screen bg-background">
+      <ProgressBar />
+      <SidebarNav activeLevel={activeLevel} onLevelClick={handleLevelClick} />
+      <FloatingNavButton activeLevel={activeLevel} onLevelClick={handleLevelClick} />
+
+      <main>
+        <HeroSection onScrollClick={handleScrollToFirst} />
+        <Level100 />
+        <Level200 />
+        <Level300 />
+        <Level400 />
+        <Level500 />
+      </main>
     </div>
   );
 };
