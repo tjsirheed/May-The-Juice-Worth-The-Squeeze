@@ -15,11 +15,8 @@ const images = [
 ];
 
 const Level100 = () => {
-<<<<<<< HEAD
-=======
   const [isExpanded, setIsExpanded] = useState(false);
 
->>>>>>> 7e162edf1907777626e878d3ce499addb7ee7e48
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
