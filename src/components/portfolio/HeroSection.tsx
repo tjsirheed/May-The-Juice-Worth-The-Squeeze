@@ -7,7 +7,10 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onScrollClick }: HeroSectionProps) => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative px-6">
+    <section 
+      className="h-screen flex flex-col items-center justify-center relative px-6 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070')" }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
