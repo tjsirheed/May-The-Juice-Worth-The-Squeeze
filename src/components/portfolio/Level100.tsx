@@ -23,7 +23,7 @@ const stories = [
   },
 ];
 
-const 100_Level = () => {
+const Level100 = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
