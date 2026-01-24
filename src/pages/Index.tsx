@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback } from "react";
 import ProgressBar from "@/components/portfolio/ProgressBar";
 import SidebarNav from "@/components/portfolio/SidebarNav";
 import FloatingNavButton from "@/components/portfolio/FloatingNavButton";
-import MusicPlayer from "@/components/portfolio/MusicPlayer";
 import HeroSection from "@/components/portfolio/HeroSection";
 import Level100 from "@/components/portfolio/Level100";
 import Level200 from "@/components/portfolio/Level200";
@@ -47,7 +46,6 @@ const Index = () => {
       <ProgressBar />
       <SidebarNav activeLevel={activeLevel} onLevelClick={handleLevelClick} />
       <FloatingNavButton activeLevel={activeLevel} onLevelClick={handleLevelClick} />
-      <MusicPlayer />
 
       <main>
         <HeroSection onScrollClick={handleScrollToFirst} />
