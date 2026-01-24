@@ -1,35 +1,40 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-const images = [
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-  "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=350&fit=crop",
-  "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&h=450&fit=crop",
-  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=300&fit=crop",
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=380&fit=crop",
-  "https://images.unsplash.com/photo-1518173946687-a4c036bc3c95?w=400&h=420&fit=crop",
+const stories = [
+  {
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+    title: "Where It All Began",
+    caption: "The mountains where I spent my childhood summers. Every trail taught me something new about myself.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=400&fit=crop",
+    title: "First Adventure",
+    caption: "My first solo trip at 16. Terrified but alive. This view changed everything.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&h=400&fit=crop",
+    title: "The Quiet Place",
+    caption: "A hidden forest near my hometown. I came here to think, to dream, to plan my escape.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=600&h=400&fit=crop",
+    title: "Chasing Waterfalls",
+    caption: "We hiked 8 hours to find this. Worth every blister and wrong turn.",
+  },
 ];
 
 const Level100 = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   return (
@@ -39,97 +44,53 @@ const Level100 = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="max-w-7xl mx-auto"
+        className="max-w-6xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="mb-12">
+        <motion.div variants={itemVariants} className="mb-16 text-center">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
             Level 100
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
             The Beginning
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Every journey has a starting point. These are the moments that shaped my earliest dreams.
+          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left: Story */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <p className="text-lg leading-relaxed text-foreground/90">
-              Every journey has a starting point. Mine began in a small town where
-              dreams felt both close and impossibly far away. The world was full
-              of wonder, and every day brought new discoveries.
-            </p>
-            <p className="text-lg leading-relaxed text-foreground/90">
-              I remember the mornings filled with golden light, the afternoons
-              spent exploring hidden corners of our neighborhood, and the evenings
-              when stories were shared around the dinner table.
-            </p>
-
+        <div className="space-y-20 md:space-y-32">
+          {stories.map((story, index) => (
             <motion.div
-              initial={false}
-              animate={{ height: isExpanded ? "auto" : 0 }}
-              className="overflow-hidden"
+              key={index}
+              variants={itemVariants}
+              className={`flex flex-col ${
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              } gap-8 md:gap-12 items-center`}
             >
-              <div className="space-y-6 pt-2">
-                <p className="text-lg leading-relaxed text-foreground/90">
-                  Those early years taught me the value of curiosity. I learned
-                  that asking questions was the first step to understanding the
-                  world. Every "why" led to an adventure, every "how" to a new
-                  skill.
-                </p>
-                <p className="text-lg leading-relaxed text-foreground/90">
-                  The people I met during these formative years left lasting
-                  impressions. Teachers who believed in potential, friends who
-                  shared in the wonder, and family who provided the foundation
-                  for everything to come.
-                </p>
-                <p className="text-lg leading-relaxed text-foreground/90">
-                  Looking back, I realize these weren't just memories—they were
-                  the building blocks of who I would become. The seeds planted
-                  here would bloom in unexpected ways throughout my journey.
+              {/* Image */}
+              <motion.div
+                className="w-full md:w-1/2"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src={story.image}
+                  alt={story.title}
+                  className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+                />
+              </motion.div>
+
+              {/* Text */}
+              <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pl-4" : "md:pr-4"}`}>
+                <h3 className="text-2xl md:text-3xl font-medium text-foreground mb-3">
+                  {story.title}
+                </h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {story.caption}
                 </p>
               </div>
             </motion.div>
-
-            <Button
-              variant="ghost"
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-2 text-primary hover:text-primary/80 hover:bg-primary/5 px-0"
-            >
-              {isExpanded ? (
-                <>
-                  <ChevronUp className="w-4 h-4" />
-                  Read Less
-                </>
-              ) : (
-                <>
-                  <ChevronDown className="w-4 h-4" />
-                  Read More
-                </>
-              )}
-            </Button>
-          </motion.div>
-
-          {/* Right: Masonry Grid */}
-          <motion.div
-            variants={containerVariants}
-            className="columns-2 gap-4 space-y-4"
-          >
-            {images.map((src, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="break-inside-avoid"
-              >
-                <motion.img
-                  src={src}
-                  alt={`Memory ${index + 1}`}
-                  className="w-full rounded-lg shadow-md"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>
