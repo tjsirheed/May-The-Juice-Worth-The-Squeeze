@@ -7,22 +7,16 @@ interface HeroSectionProps {
 
 const sliceImages = [
   "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=900&fit=crop",
-  "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=900&fit=crop",
   "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=900&fit=crop",
-  "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&h=900&fit=crop",
   "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=900&fit=crop",
 ];
 
 const sliceAnimations = [
   // First Slice: Slide up from bottom
   { initial: { y: "100%", opacity: 0 }, animate: { y: 0, opacity: 1 } },
-  // Second Slice: Fade in slowly
-  { initial: { opacity: 0 }, animate: { opacity: 1 } },
-  // Third Slice: Zoom out effect
+  // Second Slice: Zoom out effect
   { initial: { scale: 1.5, opacity: 0 }, animate: { scale: 1, opacity: 1 } },
-  // Fourth Slice: Slide down from top
-  { initial: { y: "-100%", opacity: 0 }, animate: { y: 0, opacity: 1 } },
-  // Fifth Slice: Slide in from the right
+  // Third Slice: Slide in from the right
   { initial: { x: "100%", opacity: 0 }, animate: { x: 0, opacity: 1 } },
 ];
 
@@ -30,7 +24,7 @@ const HeroSection = ({ onScrollClick }: HeroSectionProps) => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background Image Slices */}
-      <div className="absolute inset-0 z-0 grid grid-cols-5">
+      <div className="absolute inset-0 z-0 grid grid-cols-3">
         {sliceImages.map((image, index) => (
           <motion.div
             key={index}
