@@ -74,7 +74,7 @@ const Level400 = () => {
       >
         <motion.div variants={cardVariants} className="mb-16">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
-            Level 400
+            Fourth Year
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
             Turning Points

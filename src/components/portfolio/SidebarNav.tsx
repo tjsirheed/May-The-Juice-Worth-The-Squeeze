@@ -7,11 +7,11 @@ interface SidebarNavProps {
 }
 
 const levels = [
-  { id: 100, label: "The Beginning" },
-  { id: 200, label: "Building Momentum" },
-  { id: 300, label: "Growth & Lessons" },
-  { id: 400, label: "Turning Points" },
-  { id: 500, label: "Wall of Memories" },
+  { id: 100, label: "The Beginning", year: "First Year" },
+  { id: 200, label: "Building Momentum", year: "Second Year" },
+  { id: 300, label: "Growth & Lessons", year: "Third Year" },
+  { id: 400, label: "Turning Points", year: "Fourth Year" },
+  { id: 500, label: "Wall of Memories", year: "Fifth Year" },
 ];
 
 const SidebarNav = ({ activeLevel, onLevelClick }: SidebarNavProps) => {
@@ -46,12 +46,12 @@ const SidebarNav = ({ activeLevel, onLevelClick }: SidebarNavProps) => {
                     : "opacity-0 group-hover:opacity-70 text-muted-foreground"
                 }`}
               >
-                {level.id}
+                {level.year}
               </span>
             </button>
           </TooltipTrigger>
           <TooltipContent side="right" className="bg-card border-border">
-            <p className="font-medium">Level {level.id}</p>
+            <p className="font-medium">{level.year}</p>
             <p className="text-xs text-muted-foreground">{level.label}</p>
           </TooltipContent>
         </Tooltip>
