@@ -114,7 +114,7 @@ const Level300 = () => {
       >
         <motion.div variants={itemVariants} className="mb-12">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
-            Level 300
+            Third Year
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
             Growth & Lessons

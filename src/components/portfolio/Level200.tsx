@@ -67,7 +67,7 @@ const Level200 = () => {
       >
         <motion.div variants={itemVariants} className="mb-8">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
-            Level 200
+            Second Year
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
             Building Momentum

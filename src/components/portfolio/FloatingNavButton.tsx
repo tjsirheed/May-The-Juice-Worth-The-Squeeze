@@ -8,11 +8,11 @@ interface FloatingNavButtonProps {
 }
 
 const levels = [
-  { id: 100, label: "The Beginning" },
-  { id: 200, label: "Building Momentum" },
-  { id: 300, label: "Growth & Lessons" },
-  { id: 400, label: "Turning Points" },
-  { id: 500, label: "Wall of Memories" },
+  { id: 100, label: "The Beginning", year: "First Year" },
+  { id: 200, label: "Building Momentum", year: "Second Year" },
+  { id: 300, label: "Growth & Lessons", year: "Third Year" },
+  { id: 400, label: "Turning Points", year: "Fourth Year" },
+  { id: 500, label: "Wall of Memories", year: "Fifth Year" },
 ];
 
 const FloatingNavButton = ({ activeLevel, onLevelClick }: FloatingNavButtonProps) => {
@@ -45,7 +45,7 @@ const FloatingNavButton = ({ activeLevel, onLevelClick }: FloatingNavButtonProps
                       : "hover:bg-muted"
                   }`}
                 >
-                  <span className="font-semibold text-sm">Level {level.id}</span>
+                  <span className="font-semibold text-sm">{level.year}</span>
                   <p className={`text-xs ${
                     activeLevel === level.id ? "text-primary-foreground/80" : "text-muted-foreground"
                   }`}>
