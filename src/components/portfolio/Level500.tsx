@@ -95,7 +95,13 @@ const Level500 = () => {
                 alt={memory.caption}
                 className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110"
               />
-              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300" />
+              {/* Text Overlay */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-3 pt-8">
+                <p className="text-white text-xs md:text-sm font-medium leading-tight">
+                  {memory.caption}
+                </p>
+              </div>
+              <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
             </motion.button>
           ))}
         </motion.div>
