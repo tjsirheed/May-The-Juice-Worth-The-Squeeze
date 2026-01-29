@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { AnimatePresence } from "framer-motion";
 import ProgressBar from "@/components/portfolio/ProgressBar";
 import SidebarNav from "@/components/portfolio/SidebarNav";
 import FloatingNavButton from "@/components/portfolio/FloatingNavButton";
@@ -8,9 +9,11 @@ import Level200 from "@/components/portfolio/Level200";
 import Level300 from "@/components/portfolio/Level300";
 import Level400 from "@/components/portfolio/Level400";
 import Level500 from "@/components/portfolio/Level500";
+import AccessGate from "@/components/portfolio/AccessGate";
 
 const Index = () => {
   const [activeLevel, setActiveLevel] = useState(100);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLevelClick = useCallback((level: number) => {
     const element = document.getElementById(`level-${level}`);
@@ -22,6 +25,10 @@ const Index = () => {
   const handleScrollToFirst = useCallback(() => {
     handleLevelClick(100);
   }, [handleLevelClick]);
+
+  const handleUnlock = useCallback(() => {
+    setIsAuthenticated(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,18 +50,28 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen bg-background">
-      <ProgressBar />
-      <SidebarNav activeLevel={activeLevel} onLevelClick={handleLevelClick} />
-      <FloatingNavButton activeLevel={activeLevel} onLevelClick={handleLevelClick} />
+      {/* Access Gate */}
+      <AnimatePresence>
+        {!isAuthenticated && <AccessGate onUnlock={handleUnlock} />}
+      </AnimatePresence>
 
-      <main>
-        <HeroSection onScrollClick={handleScrollToFirst} />
-        <Level100 />
-        <Level200 />
-        <Level300 />
-        <Level400 />
-        <Level500 />
-      </main>
+      {/* Main Content - Only visible after authentication */}
+      {isAuthenticated && (
+        <>
+          <ProgressBar />
+          <SidebarNav activeLevel={activeLevel} onLevelClick={handleLevelClick} />
+          <FloatingNavButton activeLevel={activeLevel} onLevelClick={handleLevelClick} />
+
+          <main>
+            <HeroSection onScrollClick={handleScrollToFirst} />
+            <Level100 />
+            <Level200 />
+            <Level300 />
+            <Level400 />
+            <Level500 />
+          </main>
+        </>
+      )}
     </div>
   );
 };
