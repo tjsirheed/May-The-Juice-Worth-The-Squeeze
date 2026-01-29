@@ -13,7 +13,10 @@ import AccessGate from "@/components/portfolio/AccessGate";
 
 const Index = () => {
   const [activeLevel, setActiveLevel] = useState(100);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem("portfolio_unlocked") === "true";
+  });
+  
 
   const handleLevelClick = useCallback((level: number) => {
     const element = document.getElementById(`level-${level}`);
@@ -28,6 +31,7 @@ const Index = () => {
 
   const handleUnlock = useCallback(() => {
     setIsAuthenticated(true);
+    localStorage.setItem("portfolio_unlocked", "true");
   }, []);
 
   useEffect(() => {
