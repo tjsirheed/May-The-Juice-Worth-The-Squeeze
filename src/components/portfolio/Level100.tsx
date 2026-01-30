@@ -71,7 +71,7 @@ const pulseVariants = {
 
 const Level100 = () => {
   return (
-    <section id="level-100" className="min-h-screen py-24 px-6 lg:px-12">
+    <section id="level-100" className="py-12 px-6 lg:px-12">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -79,7 +79,7 @@ const Level100 = () => {
         variants={containerVariants}
         className="max-w-6xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="mb-16 text-center">
+        <motion.div variants={itemVariants} className="mb-8 text-center">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
             First Year
           </span>
@@ -88,7 +88,7 @@ const Level100 = () => {
           </h2>
         </motion.div>
 
-        <div className="space-y-20">
+        <div className="space-y-10">
           {storyContent.map((row, index) => (
             <motion.div
               key={index}
