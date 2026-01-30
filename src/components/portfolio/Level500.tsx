@@ -422,7 +422,7 @@ const Level500 = () => {
   };
 
   return (
-    <section id="level-500" className="min-h-screen py-24 px-6 lg:px-12 bg-muted/30">
+    <section id="level-500" className="py-12 px-6 lg:px-12 bg-muted/30">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -430,7 +430,7 @@ const Level500 = () => {
         variants={containerVariants}
         className="max-w-7xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="mb-12 text-center">
+        <motion.div variants={itemVariants} className="mb-6 text-center">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
             Fifth Year
           </span>

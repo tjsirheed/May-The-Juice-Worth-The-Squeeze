@@ -230,7 +230,7 @@ const Level300 = () => {
   };
 
   return (
-    <section id="level-300" className="min-h-screen py-24 px-6 lg:px-12">
+    <section id="level-300" className="py-12 px-6 lg:px-12">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -239,7 +239,7 @@ const Level300 = () => {
         className="max-w-7xl mx-auto"
       >
         {/* Header */}
-        <motion.div variants={itemVariants} className="mb-12">
+        <motion.div variants={itemVariants} className="mb-6">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
             Third Year
           </span>

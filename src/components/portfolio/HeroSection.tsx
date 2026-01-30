@@ -71,14 +71,14 @@ const HeroSection = ({ onScrollClick }: HeroSectionProps) => {
           transition={{ delay: 1.9, duration: 0.8 }}
           className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white mb-6"
         >
-          <span className="block">Arriesgar Nada,</span>
+          <span className="block">May the juice</span>
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.3, duration: 0.6 }}
             className="block text-primary font-medium"
           >
-            Ganar Nada
+            worth the squeeze
           </motion.span>
         </motion.h1>
 
