@@ -200,14 +200,30 @@ const Level200 = () => {
       </ScrollArea>
 
       {/* Scroll Hint */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center text-sm text-muted-foreground mt-6"
+        className="flex items-center justify-center gap-3 mt-8"
       >
-        ← Swipe to explore my second year journey →
-      </motion.p>
+        <motion.span
+          animate={{ x: [-3, 3, -3] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="text-primary text-lg"
+        >
+          ←
+        </motion.span>
+        <span className="text-base font-medium text-foreground/80 bg-primary/10 px-4 py-2 rounded-full">
+          Swipe to explore my second year journey
+        </span>
+        <motion.span
+          animate={{ x: [3, -3, 3] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="text-primary text-lg"
+        >
+          →
+        </motion.span>
+      </motion.div>
     </section>
   );
 };
