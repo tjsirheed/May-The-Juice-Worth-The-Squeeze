@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useVideoPlayer } from "@/hooks/useVideoPlayer";
 
 interface GridItem {
   id: number;
@@ -132,6 +133,8 @@ const gridItems: GridItem[] = [
 ];
 
 const Level300 = () => {
+  const videoHandlers = useVideoPlayer();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -161,6 +164,7 @@ const Level300 = () => {
             className="w-full h-full object-cover"
             controls
             playsInline
+            {...videoHandlers}
           />
         );
 

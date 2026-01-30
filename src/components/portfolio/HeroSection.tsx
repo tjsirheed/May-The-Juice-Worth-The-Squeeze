@@ -22,7 +22,7 @@ const sliceAnimations = [
 
 const HeroSection = ({ onScrollClick }: HeroSectionProps) => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+    <section id="hero-section" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background Image Slices */}
       <div className="absolute inset-0 z-0 grid grid-cols-3">
         {sliceImages.map((image, index) => (

@@ -1,8 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { AnimatePresence } from "framer-motion";
+import { AudioProvider } from "@/contexts/AudioContext";
 import ProgressBar from "@/components/portfolio/ProgressBar";
 import SidebarNav from "@/components/portfolio/SidebarNav";
-import FloatingNavButton from "@/components/portfolio/FloatingNavButton";
+import FloatingMuteButton from "@/components/portfolio/FloatingMuteButton";
+import AudioZoneObserver from "@/components/portfolio/AudioZoneObserver";
 import HeroSection from "@/components/portfolio/HeroSection";
 import Level100 from "@/components/portfolio/Level100";
 import Level200 from "@/components/portfolio/Level200";
@@ -53,30 +55,33 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-background">
-      {/* Access Gate */}
-      <AnimatePresence>
-        {!isAuthenticated && <AccessGate onUnlock={handleUnlock} />}
-      </AnimatePresence>
+    <AudioProvider>
+      <div className="relative min-h-screen bg-background">
+        {/* Access Gate */}
+        <AnimatePresence>
+          {!isAuthenticated && <AccessGate onUnlock={handleUnlock} />}
+        </AnimatePresence>
 
-      {/* Main Content - Only visible after authentication */}
-      {isAuthenticated && (
-        <>
-          <ProgressBar />
-          <SidebarNav activeLevel={activeLevel} onLevelClick={handleLevelClick} />
-          <FloatingNavButton activeLevel={activeLevel} onLevelClick={handleLevelClick} />
+        {/* Main Content - Only visible after authentication */}
+        {isAuthenticated && (
+          <>
+            <ProgressBar />
+            <SidebarNav activeLevel={activeLevel} onLevelClick={handleLevelClick} />
+            <FloatingMuteButton />
+            <AudioZoneObserver />
 
-          <main>
-            <HeroSection onScrollClick={handleScrollToFirst} />
-            <Level100 />
-            <Level200 />
-            <Level300 />
-            <Level400 />
-            <Level500 />
-          </main>
-        </>
-      )}
-    </div>
+            <main>
+              <HeroSection onScrollClick={handleScrollToFirst} />
+              <Level100 />
+              <Level200 />
+              <Level300 />
+              <Level400 />
+              <Level500 />
+            </main>
+          </>
+        )}
+      </div>
+    </AudioProvider>
   );
 };
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { useVideoPlayer } from "@/hooks/useVideoPlayer";
 
 type CardType = "image" | "gallery-4" | "gallery-2" | "video";
 
@@ -82,6 +83,8 @@ const cards: StoryCard[] = [
 ];
 
 const Level200 = () => {
+  const videoHandlers = useVideoPlayer();
+  
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -139,10 +142,9 @@ const Level200 = () => {
             <video
               src={card.media as string}
               className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
+              controls
               playsInline
+              {...videoHandlers}
             />
           </div>
         );

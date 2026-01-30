@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Layers } from "lucide-react";
+import { ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useVideoPlayer } from "@/hooks/useVideoPlayer";
 
 type MediaItem = {
   type: "image" | "video";
@@ -249,6 +250,7 @@ const gridItems: GridItem[] = [
 const Level500 = () => {
   const [selectedAlbum, setSelectedAlbum] = useState<string[] | null>(null);
   const [albumIndex, setAlbumIndex] = useState(0);
+  const videoHandlers = useVideoPlayer();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -349,6 +351,7 @@ const Level500 = () => {
             controls
             className="w-full h-full object-cover"
             preload="metadata"
+            {...videoHandlers}
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12 pointer-events-none">
             <p className="text-white text-sm md:text-base font-medium">
@@ -384,6 +387,7 @@ const Level500 = () => {
                 controls
                 className="w-full h-full object-cover"
                 preload="metadata"
+                {...videoHandlers}
               />
             </div>
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12 pointer-events-none">
