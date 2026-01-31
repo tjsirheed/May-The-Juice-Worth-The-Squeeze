@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useAudio } from "@/contexts/AudioContext";
 
+// UPDATED MAPPING
 const ZONE_MAP: Record<string, number> = {
-  "hero-section": 0,
-  "level-100": 0,
-  "level-200": 1,
-  "level-300": 2,
-  "level-400": 3,
-  "level-500": 4,
+  "hero-section": 0, // Plays Song 1
+  "level-100": 1,    // Plays Song 2
+  "level-200": 2,    // Plays Song 3
+  "level-300": 3,    // Plays Song 4
+  "level-400": 3,    // Plays Song 4 (Shared!)
+  "level-500": 4,    // Plays Song 5
 };
 
 const AudioZoneObserver = () => {
@@ -22,7 +23,6 @@ const AudioZoneObserver = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the most visible section
         let mostVisible: { id: string; ratio: number } | null = null;
         
         entries.forEach((entry) => {

@@ -12,11 +12,11 @@ interface AudioContextType {
 const AudioContext = createContext<AudioContextType | null>(null);
 
 const AUDIO_TRACKS = [
-  "/Song_1.mp3", // Hero & First Year
-  "/Song_2.mp3", // Second Year
-  "/Song_3.mp3", // Third Year
-  "/Song_4.mp3", // Fourth Year
-  "/Song_5.mp3", // Fifth Year
+  "/song_1.mp3", 
+  "/song_2.mp3", 
+  "/song_3.mp3", 
+  "/song_4.mp3", 
+  "/song_5.mp3",
 ];
 
 export const AudioProvider = ({ children }: { children: ReactNode }) => {
@@ -51,7 +51,6 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
       if (!hasInteracted && audioRef.current && !isMuted) {
         setHasInteracted(true);
         audioRef.current.play().catch(() => {
-          // Autoplay blocked, will try again on next interaction
           setHasInteracted(false);
         });
       }
@@ -68,20 +67,21 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     };
   }, [hasInteracted, isMuted]);
 
-  // Handle zone changes - crossfade to new track
+  // Handle zone changes - 5 SECOND CROSSFADE
   useEffect(() => {
     if (!audioRef.current || !hasInteracted) return;
 
     const newTrack = AUDIO_TRACKS[currentZone];
     if (audioRef.current.src.endsWith(newTrack)) return;
 
-    // Fade out current track
+    // Fade out current track (5 Seconds)
     const fadeOut = () => {
       if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
       
       fadeIntervalRef.current = setInterval(() => {
-        if (audioRef.current && audioRef.current.volume > 0.05) {
-          audioRef.current.volume = Math.max(0, audioRef.current.volume - 0.05);
+        // We use 0.003 step size. (100 steps * 50ms = 5000ms)
+        if (audioRef.current && audioRef.current.volume > 0.003) {
+          audioRef.current.volume = Math.max(0, audioRef.current.volume - 0.003);
         } else {
           if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
           
@@ -98,10 +98,11 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
       }, 50);
     };
 
+    // Fade in new track (5 Seconds)
     const fadeIn = () => {
       fadeIntervalRef.current = setInterval(() => {
         if (audioRef.current && audioRef.current.volume < 0.3) {
-          audioRef.current.volume = Math.min(0.3, audioRef.current.volume + 0.05);
+          audioRef.current.volume = Math.min(0.3, audioRef.current.volume + 0.003);
         } else {
           if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
         }
@@ -111,12 +112,12 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     fadeOut();
   }, [currentZone, hasInteracted, isMuted, isVideoPlaying]);
 
-  // Handle video playing state - pause/resume background music
+  // Handle video playing state - QUICK DUCK (Kept fast for UX)
   useEffect(() => {
     if (!audioRef.current || !hasInteracted) return;
 
     if (isVideoPlaying) {
-      // Fade out when video plays
+      // Fade out quickly when video plays (approx 1 sec) so audio doesn't clash
       const fadeOut = setInterval(() => {
         if (audioRef.current && audioRef.current.volume > 0.02) {
           audioRef.current.volume = Math.max(0, audioRef.current.volume - 0.02);
