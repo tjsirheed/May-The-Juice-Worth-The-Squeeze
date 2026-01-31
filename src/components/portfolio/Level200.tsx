@@ -15,70 +15,70 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "Which way like this? 🤔",
-    text: "Confused by tech courses. Then the strike came. Used those 8 months to start Cybersecurity. What a journey!",
+    text: "8-month strike just after resumption. What next?",
     media: "images/level200/image-1.jpg",
   },
   {
     type: "image",
-    heading: "Strike Over? 😫",
-    text: "How do I even revive the student in me?",
-    media: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&h=500&fit=crop",
+    heading: "Strike is Over? 😫",
+    text: "Omo! I really struggled to revive the student in me.",
+    media: "images/level200/image-2.jpg",
   },
   {
     type: "image",
     heading: "Game On! 🎮",
     text: "Anyways, no time to waste.",
-    media: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=500&fit=crop",
+    media: "images/level200/image-3.jpg",
   },
   {
     type: "gallery-4",
-    heading: "Fresh Air 💨",
-    text: "Fresh after strike. Looking good.",
+    heading: "Just after the 8-month strike ✨",
+    //text: "Back to take on the next challenge.",
     media: [
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=200&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=200&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=200&h=200&fit=crop",
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200&h=200&fit=crop",
+      "images/level200/image-4.jpg",
+      "images/level200/image-5.jpg",
+      "images/level200/image-6.jpg",
+      "images/level200/image-7.jpg",
     ],
   },
   {
     type: "video",
     heading: "MAT223 📉",
-    text: "Analysis for Non-majors. Some courses were beyond ordinary.",
-    media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+    text: "Analysis for Non-majors? Never again!",
+    media: "videos/level200/video-1.mp4",
   },
   {
     type: "video",
-    heading: "The TEL241 Project 📡",
-    text: "Carried this on my head! Completed it with help from a senior.",
-    media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    heading: "The TEL241 Project",
+    text: "Digital Display System.",
+    media: "videos/level200/video-2.mp4",
   },
   {
-    type: "gallery-2",
-    heading: "SEEES Dinner 🏆",
-    text: "Most Influential & Most Likely to Practice Engineering awards.",
+    type: "image",
+    heading: "SEEES Dinner",
+    text: "I got awards for the most influential & most Likely to Practice Engineering in 200 level.",
     media: [
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=300&fit=crop",
+      "images/level200/dinner-image.jpg",
+      //"images/level200/dinner-image-2.jpg",
     ],
   },
   {
     type: "image",
     heading: "SWEP at Taolad 🛠️",
-    text: "Manual labour was real here mehn.",
-    media: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=500&fit=crop",
+    text: "Manual labour was real here mehn! ",
+    media: "images/level200/swep.jpg",
   },
   {
     type: "video",
-    heading: "Sapa Chronicles 🥣",
+    heading: "Sapa hold my neck for here ",
     text: "Omo... I too drink garri this time ooo.",
-    media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    media: "videos/level200/sapa.mp4",
   },
   {
     type: "image",
     heading: "200L Defense ✅",
     text: "Fine boy. AlhamduliLlahi for a successful session.",
-    media: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=400&h=500&fit=crop",
+    media: "images/level200/defense.jpg",
   },
 ];
 
@@ -97,7 +97,7 @@ const Level200 = () => {
           <motion.img
             src={card.media as string}
             alt={card.heading}
-            className="w-full h-64 object-cover rounded-xl"
+            className="w-full h-64 object-cover object-top rounded-xl"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.3 }}
           />
