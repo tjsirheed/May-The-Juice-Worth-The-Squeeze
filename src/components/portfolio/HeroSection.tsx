@@ -6,7 +6,7 @@ interface HeroSectionProps {
 }
 
 const sliceImages = [
-  "C:\\Users\\USER\\Desktop\\level_100\\hero-1.jpg",
+  "/images/hero/hero-1.jpg",
   "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=900&fit=crop",
   "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=900&fit=crop",
 ];
