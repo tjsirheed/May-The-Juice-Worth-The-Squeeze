@@ -16,7 +16,7 @@ const cards: StoryCard[] = [
     type: "image",
     heading: "Which way like this? 🤔",
     text: "Confused by tech courses. Then the strike came. Used those 8 months to start Cybersecurity. What a journey!",
-    media: "images/level200/image-1.jpg",
+    media: "images\level200\image-1.jpg",
   },
   {
     type: "image",
