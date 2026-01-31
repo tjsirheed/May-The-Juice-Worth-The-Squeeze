@@ -234,7 +234,7 @@ const Level300 = () => {
   };
 
   return (
-    <section id="level-300" className="py-12 px-6 lg:px-12">
+    <section id="level-300" className="py-12 px-6 lg:px-12 bg-level-300">
       <motion.div
         initial="hidden"
         whileInView="visible"

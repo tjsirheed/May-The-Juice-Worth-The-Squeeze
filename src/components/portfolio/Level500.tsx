@@ -426,7 +426,7 @@ const Level500 = () => {
   };
 
   return (
-    <section id="level-500" className="py-12 px-6 lg:px-12 bg-muted/30">
+    <section id="level-500" className="py-12 px-6 lg:px-12 bg-level-500">
       <motion.div
         initial="hidden"
         whileInView="visible"

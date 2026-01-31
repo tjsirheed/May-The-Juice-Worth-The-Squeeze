@@ -71,7 +71,7 @@ const pulseVariants = {
 
 const Level100 = () => {
   return (
-    <section id="level-100" className="py-12 px-6 lg:px-12">
+    <section id="level-100" className="py-12 px-6 lg:px-12 bg-level-100">
       <motion.div
         initial="hidden"
         whileInView="visible"

@@ -54,6 +54,11 @@ export default {
         "soft-gold": "hsl(var(--soft-gold))",
         terracotta: "hsl(var(--terracotta))",
         charcoal: "hsl(var(--charcoal))",
+        "level-100": "hsl(var(--level-100))",
+        "level-200": "hsl(var(--level-200))",
+        "level-300": "hsl(var(--level-300))",
+        "level-400": "hsl(var(--level-400))",
+        "level-500": "hsl(var(--level-500))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
