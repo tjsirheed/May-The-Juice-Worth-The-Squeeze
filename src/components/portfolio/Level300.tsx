@@ -15,7 +15,7 @@ const gridItems: GridItem[] = [
     type: "image",
     media: "images/level300/image1.jpg",
     text: "This level na war oooo.",
-    span: "large",
+    //span: "large",
   },
   {
     id: 2,
@@ -31,9 +31,9 @@ const gridItems: GridItem[] = [
   //},
   {
     id: 4,
-    type: "gallery-2",
+    type: "image",
     media: [
-      "images/level300/image4.jpg",
+      //"images/level300/image4.jpg",
       "images/level300/image3.jpg",
     ],
     text: "Anyways, May The Juice Worth The Squeeze. ",
@@ -103,10 +103,17 @@ const gridItems: GridItem[] = [
       "images/level300/new2.jpg",
     ],
     text: "99% Faith, 1% Chance. AlhamduliLlah. 🙏",
-    span: "large",
+    //span: "large",
   },
     {
-    id: 13,
+    id: 15,
+    type: "video",
+    media: "videos/level300/dance.mp4",
+    text: "Dinner time? Trust me, it was fun. 🕺",
+    //span: "large",
+  },
+    {
+    id: 14,
     type: "gallery-2",
     media: [
       "images/level300/defense1.jpg",
@@ -122,13 +129,7 @@ const gridItems: GridItem[] = [
   //  text: "Dinner time? Trust me, it was fun. 🍽️",
   //  span: "large",
   //},
-  {
-    id: 15,
-    type: "video",
-    media: "videos/level300/dance.mp4",
-    text: "Dinner time? Trust me, it was fun. 🕺",
-    //span: "large",
-  },
+
 ];
 
 const Level300 = () => {
