@@ -154,7 +154,7 @@ const Level200 = () => {
   };
 
   return (
-    <section id="level-200" className="py-12 px-6 lg:px-12 bg-muted/30 relative">
+    <section id="level-200" className="py-12 px-6 lg:px-12 bg-level-200 relative">
       {/* Fixed Header */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}

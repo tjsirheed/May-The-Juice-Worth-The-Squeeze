@@ -42,6 +42,13 @@
     --terracotta: 15 60% 55%;
     --charcoal: 0 0% 15%;
     --light-overlay: 0 0% 100% / 0.85;
+    
+    /* Section backgrounds */
+    --level-100: 43 33% 97%;
+    --level-200: 210 33% 96%;
+    --level-300: 150 33% 96%;
+    --level-400: 60 33% 91%;
+    --level-500: 30 100% 97%;
 
     --sidebar-background: 40 30% 97%;
     --sidebar-foreground: 0 0% 25%;
@@ -87,6 +94,13 @@
     --terracotta: 15 60% 50%;
     --charcoal: 40 20% 90%;
     --light-overlay: 0 0% 0% / 0.75;
+    
+    /* Section backgrounds - dark mode versions */
+    --level-100: 40 10% 12%;
+    --level-200: 210 10% 12%;
+    --level-300: 150 10% 12%;
+    --level-400: 40 10% 14%;
+    --level-500: 30 15% 13%;
 
     --sidebar-background: 0 0% 10%;
     --sidebar-foreground: 40 20% 90%;
