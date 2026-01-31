@@ -41,27 +41,38 @@ const gridItems: GridItem[] = [
       { type: "video", src: "videos/level500/typeSOS.mp4" },
     ],
   },
+
+    {
+    id: 12,
+    type: "video",
+    text: "I chest one nice heartbreak along the line sha",
+    media: [{ type: "video", src: "videos/level500/break1.mp4" }],
+  },
+
   {
     id: 4,
     type: "cluster",
-    text: "IEEE-IMS Workshop. Work hard, play hard.",
+    text: "IEEE-IMS Workshop.",
     media: [
       { type: "image", src: "images/level500/image1.jpg" },
       { type: "image", src: "images/level500/image2.jpg" },
       { type: "video", src: "videos/level500/video1.mp4" },
     ],
   },
+  
   {
     id: 5,
     type: "video",
     text: "I was very unserious in first semester oooo...",
     media: [{ type: "video", src: "videos/level500/unserious.mp4" }],
   },
+
   {
     id: 6,
     type: "stat",
     text: "Still had a 4.0 CGPA. God did. 🙏",
   },
+
   {
     id: 7,
     type: "album",
@@ -99,60 +110,7 @@ const gridItems: GridItem[] = [
     text: "Showed up for SEEES week.",
     media: [{ type: "image", src: "images/level500/week.png" }],
   },
-  {
-    id: 11,
-    type: "cluster",
-    text: "Final dinner as a SEEESite.",
-    media: [
-      { type: "image", src: "images/level500/dinner3.jpg" },
-      { type: "image", src: "images/level500/dinner2.jpg" },
-    ],
-  },
-  {
-    id: 12,
-    type: "video",
-    text: "I chest one nice heartbreak along the line too",
-    media: [{ type: "video", src: "videos/level500/break1.mp4" }],
-  },
-  {
-    id: 13,
-    type: "cluster",
-    text: "Sign out jooor (MTJWTS).",
-    media: [
-      { type: "image", src: "images/level500/sign1.jpg" },
-      { type: "image", src: "images/level500/sign2.jpg" },
-    ],
-  },
-  {
-    id: 14,
-    type: "cluster",
-    text: "DONE! ✅",
-    media: [
-      { type: "image", src: "images/level500/Grad.webp" },
-      { type: "image", src: "images/level500/finally.jpg" },
-    ],
-  },
-  {
-    id: 15,
-    type: "video",
-    text: "It's all by HIS grace.",
-    media: [{ type: "video", src: "videos/level500/thanks.mp4" }],
-  },
-  {
-    id: 16,
-    type: "image",
-    text: "AVMS Dinner.",
-    media: [{ type: "image", src: "images/level500/AVMS_Dinner.jpg" }],
-  },
-  {
-    id: 17,
-    type: "cluster",
-    text: "Back on the pitch after a long time.",
-    media: [
-      { type: "image", src: "images/level500/ball1.jpg" },
-      { type: "image", src: "images/level500/ball2.jpg" },
-    ],
-  },
+  
   {
     id: 18,
     type: "video",
@@ -216,7 +174,57 @@ const gridItems: GridItem[] = [
       "images/level500/new6.jpg",
     ],
   },
-  /*
+
+  {
+    id: 11,
+    type: "cluster",
+    text: "Final dinner as a SEEESite.",
+    media: [
+      { type: "image", src: "images/level500/dinner3.jpg" },
+      { type: "image", src: "images/level500/dinner2.jpg" },
+    ],
+  },
+
+  {
+    id: 13,
+    type: "cluster",
+    text: "Sign out jooor (MTJWTS).",
+    media: [
+      { type: "image", src: "images/level500/sign1.jpg" },
+      { type: "image", src: "images/level500/sign2.jpg" },
+    ],
+  },
+  {
+    id: 14,
+    type: "cluster",
+    text: "DONE! ✅",
+    media: [
+      { type: "image", src: "images/level500/Grad.webp" },
+      { type: "image", src: "images/level500/finally.jpg" },
+    ],
+  },
+  {
+    id: 15,
+    type: "video",
+    text: "It's all by HIS grace.",
+    media: [{ type: "video", src: "videos/level500/thanks.mp4" }],
+  },
+  {
+    id: 16,
+    type: "image",
+    text: "AVMS Dinner.",
+    media: [{ type: "image", src: "images/level500/AVMS_Dinner.jpg" }],
+  },
+  {
+    id: 17,
+    type: "cluster",
+    text: "Back on the pitch after a long time.",
+    media: [
+      { type: "image", src: "images/level500/ball1.jpg" },
+      { type: "image", src: "images/level500/ball2.jpg" },
+    ],
+  },
+    /*
   {
     id: 25,
     type: "video",
