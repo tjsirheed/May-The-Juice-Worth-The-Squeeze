@@ -207,12 +207,7 @@ const gridItems: GridItem[] = [
       { type: "image", src: "images/level500/finally.jpg" },
     ],
   },
-  {
-    id: 15,
-    type: "video",
-    text: "It's all by HIS grace.",
-    media: [{ type: "video", src: "videos/level500/thanks.mp4" }],
-  },
+
   {
     id: 16,
     type: "image",
@@ -255,7 +250,13 @@ const gridItems: GridItem[] = [
     media: [{ type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" }],
   },
   */
-
+  {
+    id: 15,
+    type: "video",
+    text: "It's all by HIS grace.",
+    media: [{ type: "video", src: "videos/level500/thanks.mp4" }],
+  },
+  
   {
     id: 29,
     type: "video",

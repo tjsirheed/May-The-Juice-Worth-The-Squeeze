@@ -21,7 +21,7 @@ const gridItems: GridItem[] = [
     id: 2,
     type: "video",
     media: "videos/level300/video1.mp4",
-    text: "Everything was about to scatter for real 😫",
+    text: "At first, everything was about to scatter for real 😫",
     
   },
   //{
@@ -33,7 +33,6 @@ const gridItems: GridItem[] = [
     id: 4,
     type: "image",
     media: [
-      //"images/level300/image4.jpg",
       "images/level300/image3.jpg",
     ],
     text: "Anyways, May The Juice Worth The Squeeze. ",
@@ -54,13 +53,13 @@ const gridItems: GridItem[] = [
     media: [
       "images/level300/awo.jpg",
     ],
-    text: "Shot a video at Awo court... then the project ghosted us. 👻",
+    text: "Shot a video at Awo court and the project ghosted us later. ",
   },
   {
     id: 7,
     type: "image",
     media: "images/level300/waves2.jpg",
-    text: "Just a good day to feel my waves again. 🌊",
+    text: "Just a good day to feel my waves again.",
   },
   {
     id: 8,
@@ -71,13 +70,13 @@ const gridItems: GridItem[] = [
       "images/level300/pic3.jpg",
       "images/level300/pic4.jpg",
     ],
-    text: "Decided to start taking pictures for times like this 😎",
+    text: "Decided to start taking pictures for times like this.",
   },
   {
     id: 9,
     type: "image",
     media: "images/level300/newtour.jpg",
-    text: "Industrial Tour at TCN and RAIN. Loved every bit of it! ⚙️",
+    text: "Industrial Tour at TCN and RAIN ⚙️",
   },
   {
     id: 10,
@@ -88,6 +87,7 @@ const gridItems: GridItem[] = [
     ],
     text: "Second semester exams really tested me but I survived it all",
   },
+
   //{
     //id: 11,
     //type: "image",
@@ -95,6 +95,7 @@ const gridItems: GridItem[] = [
     //text: "Best results so far. 4.0 First Semester. Go hard or go home! 🚀",
     //span: "large",
   //},
+
   {
     id: 12,
     type: "gallery-2",

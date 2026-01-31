@@ -15,7 +15,7 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "Which way like this? 🤔",
-    text: "8-month strike just after resumption. What next?",
+    text: "8-month strike just after resumption. What do we do now?",
     media: "images/level200/image-1.jpg",
   },
   {
@@ -27,13 +27,13 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "Game On! 🎮",
-    text: "Anyways, no time to waste.",
+    text: "Anyways, Head in the game again.",
     media: "images/level200/image-3.jpg",
   },
   {
     type: "gallery-4",
-    heading: "Just after the 8-month strike ",
-    //text: "Back to take on the next challenge.",
+    heading: " ",
+    text: " ",
     media: [
       "images/level200/image-4.jpg",
       "images/level200/image-5.jpg",
@@ -59,7 +59,6 @@ const cards: StoryCard[] = [
     text: "I got awards for the most influential & most Likely to Practice Engineering in 200 level.",
     media: [
       "images/level200/dinner-image.jpg",
-      //"images/level200/dinner-image-2.jpg",
     ],
   },
   {
