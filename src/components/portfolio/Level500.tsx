@@ -66,11 +66,29 @@ const gridItems: GridItem[] = [
     text: "I was very unserious in first semester oooo...",
     media: [{ type: "video", src: "videos/level500/unserious.mp4" }],
   },
-
+  /*
   {
     id: 6,
     type: "stat",
     text: "Still had a 4.0 CGPA. God did. 🙏",
+  },
+  */
+
+  {
+    id: 10,
+    type: "image",
+    text: "Showed up for SEEES week.",
+    media: [{ type: "image", src: "images/level500/week.png" }],
+  },
+
+  {
+    id: 8,
+    type: "cluster",
+    text: "Final CA as an Undergraduate.",
+    media: [
+      { type: "image", src: "images/level500/final1.jpg" },
+      { type: "image", src: "images/level500/final2.jpg" },
+    ],
   },
 
   {
@@ -86,15 +104,7 @@ const gridItems: GridItem[] = [
       "images/level500/Day5.jpg",
     ],
   },
-  {
-    id: 8,
-    type: "cluster",
-    text: "Final CA as an Undergraduate.",
-    media: [
-      { type: "image", src: "images/level500/final1.jpg" },
-      { type: "image", src: "images/level500/final2.jpg" },
-    ],
-  },
+
   {
     id: 9,
     type: "cluster",
@@ -103,12 +113,6 @@ const gridItems: GridItem[] = [
       { type: "image", src: "images/level500/fest1.jpeg" },
       { type: "image", src: "images/level500/fest2.jpeg" },
     ],
-  },
-  {
-    id: 10,
-    type: "image",
-    text: "Showed up for SEEES week.",
-    media: [{ type: "image", src: "images/level500/week.png" }],
   },
   
   {
