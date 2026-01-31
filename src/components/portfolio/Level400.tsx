@@ -15,83 +15,84 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "400 Level Mehn! 🤯",
-    text: "I took 8 courses with 5 practicals. What do you mean I have to write 5 reports in a week?",
-    media: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=500&fit=crop",
+    text: "I took 8 courses with 4 practicals. What do you mean I have to write 4 reports in a week?",
+    media: "images/level400/image1.jpg",
   },
   {
     type: "image",
     heading: "Zoological Garden 🦁",
-    text: "First time at the Zoo. Exploring nature.",
-    media: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=400&h=500&fit=crop",
+    text: "This was my first time at the Zoo.",
+    media: "images/level400/zoo.jpg",
   },
   {
     type: "split",
-    heading: "Last Skin? ✂️",
+    heading: "Last Skin? 😅",
     text: "That stage when you barb last skin? Yeah, that happened.",
     media: [
-      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=200&h=250&fit=crop",
-      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=200&h=250&fit=crop",
+      "images/level400/shave1.jpg",
+      "images/level400/shave2.jpg",
     ],
   },
   {
     type: "split",
     heading: "Still Fresh Sha 😎",
-    text: "Despite the stress, the drip remained.",
+    text: "Drip is eternal even with the shaved head",
     media: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=250&fit=crop",
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=250&fit=crop",
+      "images/level400/shave3.jpg",
+      "images/level400/shave4.jpg",
     ],
   },
-  {
-    type: "grid-3",
-    heading: "Random Moments 📸",
-    text: "Just some random pictures from the year.",
-    media: [
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=150&h=150&fit=crop",
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=150&h=150&fit=crop",
-      "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=150&h=150&fit=crop",
-    ],
-  },
+  
   {
     type: "split",
     heading: "Power System 2 ⚡",
     text: "Just finished the exam here. It was... breathtaking (and not in a good way).",
     media: [
-      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=200&h=250&fit=crop",
-      "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=200&h=250&fit=crop",
+      "images/level400/PS1.jpg",
+      "images/level400/PS2.jpg",
     ],
   },
   {
     type: "image",
     heading: "Awba Dam 🌊",
     text: "Fun time at the dam. Her view tho.",
-    media: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=500&fit=crop",
+    media: "images/level400/awba.jpg",
   },
   {
     type: "image",
     heading: "TESA Conference 👔",
     text: "Showed up again. Never missed one since 200 Level.",
-    media: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=500&fit=crop",
+    media: "images/level400/conf.jpg",
   },
   {
-    type: "grid-5",
+    type: "grid-3",
     heading: "IT at VAAV Solutions 💻",
     text: "Work mode activated. Building real things.",
     media: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=150&h=150&fit=crop",
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=150&h=150&fit=crop",
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=150&h=150&fit=crop",
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=150&h=150&fit=crop",
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=150&h=150&fit=crop",
+      "images/level400/IT1.jpg",
+      "images/level400/IT3.jpg",
+      "images/level400/IT4.jpeg",
     ],
     wide: true,
   },
+
   {
     type: "image",
     heading: "Final Year Loading ⏳",
     text: "Looking at final year... Vamos jooor!",
-    media: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=500&fit=crop",
+    media: "images/level400/finals.jpg",
   },
+
+    {
+    type: "split",
+    heading: "Random Moments 📸",
+    text: "400 level IT Defense. Here are some random shots from that day.",
+    media: [
+      "images/level400/defense4.jpg",
+      "images/level400/defense3.jpg",
+    ],
+  },
+  
 ];
 
 const Level400 = () => {
@@ -107,7 +108,7 @@ const Level400 = () => {
           <motion.img
             src={card.media as string}
             alt={card.heading}
-            className="w-full h-64 object-cover rounded-xl"
+            className="w-full h-64 object-cover object-top rounded-xl"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.3 }}
           />
@@ -120,7 +121,7 @@ const Level400 = () => {
                 key={idx}
                 src={img}
                 alt={`${card.heading} ${idx + 1}`}
-                className="w-1/2 h-full object-cover rounded-lg"
+                className="w-1/2 h-full object-cover object-left rounded-lg"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               />

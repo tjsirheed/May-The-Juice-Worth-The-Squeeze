@@ -32,7 +32,7 @@ const cards: StoryCard[] = [
   },
   {
     type: "gallery-4",
-    heading: "Just after the 8-month strike ✨",
+    heading: "Just after the 8-month strike ",
     //text: "Back to take on the next challenge.",
     media: [
       "images/level200/image-4.jpg",
@@ -97,7 +97,7 @@ const Level200 = () => {
           <motion.img
             src={card.media as string}
             alt={card.heading}
-            className="w-full h-64 object-cover object-top rounded-xl"
+            className="w-full h-64 object-cover rounded-xl"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.3 }}
           />

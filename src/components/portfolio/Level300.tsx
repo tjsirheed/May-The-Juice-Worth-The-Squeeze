@@ -14,7 +14,7 @@ const gridItems: GridItem[] = [
     id: 1,
     type: "image",
     media: "images/level300/image1.jpg",
-    text: "This level na war oooo.",
+    text: "God abeg",
     //span: "large",
   },
   {
