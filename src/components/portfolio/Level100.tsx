@@ -1,75 +1,162 @@
 import { motion } from "framer-motion";
+import { useVideoPlayer } from "@/hooks/useVideoPlayer";
 
-const storyContent = [
+interface GridItem {
+  id: number;
+  type: "video" | "image" | "gallery-2" | "gallery-3" | "gallery-4" | "stat";
+  media?: string | string[];
+  text: string;
+  span?: "large" | "normal";
+}
+
+const gridItems: GridItem[] = [
   {
-    layout: "image-left",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop",
-    heading: "masked_up_szn 😷",
-    body: "Covid-19 was still a thing. I stepped onto campus wondering... I really have to be strategic about this degree thingy. That First Class dream felt so real, yet so far away. But I told myself: I will be there no matter what! 🚀",
+    id: 1,
+    type: "image",
+    media: "images/level100/level1.jpg",
+    text: "Masked Up Szn 😷. Covid-19 was still a thing at the time.",
+    span: "large", // I made this large to anchor the grid
   },
   {
-    layout: "text-left",
-    image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&h=400&fit=crop",
-    heading: "Hunting for the Best Tutors 📚",
-    body: "Started my journey hopping between tutorials. Tried two, wasn't feeling the vibe. 😒 Eventually settled for 4-Point Makers (The GOATs at the time). If you know, you know.",
+    id: 2,
+    type: "image",
+    media: "images/level100/fine2.jpg",
+    text: "Virtual classes? I settled for 4-Point Makers tutorials instead. Iykyk.",
+    span: "large",
+  },
+
+  /*
+  {
+    id: 3,
+    type: "stat",
+    text: "4.0 GPA First Semester. Go hard or go home! 🚀",
+  },
+  */
+
+  {
+    id: 4,
+    type: "image",
+    media: "images/level100/tdb.jpg",
+    text: "TDB? If I were to do this degree again, I wouldn't do that intense TDB drill.",
+    span: "large",
   },
   {
-    layout: "image-left",
-    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=400&fit=crop",
-    heading: "The Zik Hall Chronicles 🌙",
-    body: "The TDB (Till Day Break) drill was brazzy man! Reading from 11 PM to 5 AM, then crashing at Aji's room in Zik Hall (A74). Sleep was a myth. 😴📖",
+    id: 5,
+    type: "image",
+    media: "images/level100/vote.jpg",
+    text: "Orientation Programme: I tried to mimic a character, ended up looking like an aspiring politician 😂",
+    span: "large",
   },
   {
-    layout: "text-left",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
-    heading: "Mo fine gan! (I'm too fine!) 😎",
-    body: "Amidst the stress, we still had fun. I tried to mimic a cool character here but ended up looking like an aspiring politician. Vote for me? 😂🗳️",
-  },
-  {
-    layout: "image-left",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
-    heading: "Disaster Strikes: PHY 102 🚑",
-    body: "First semester exams came, and my immune system decided to crash. I got so sick I started doubting my genotype. 🤒 Arrived at the PHY 102 venue with only 40 minutes left. I just wrote what I could and left the rest to God. I was praying for a B at best...",
-  },
-  {
-    layout: "text-left",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop",
-    heading: "God Came Through! 🙏✨",
-    body: "The results came out... I scored",
-    highlightScore: "73",
-    bodyEnd: ". 🤯 I don't know how, but the comeback was real. 100 level was tough, but we survived!",
+    id: 6,
+    type: "image",
+    media: "images/level100/win.jpg",
+    text: "Limit your TDB guys! I was sick for PHY102 exams but still pulled through.",
+    span: "large",
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const }
-  },
-};
-
-const pulseVariants = {
-  animate: {
-    scale: [1, 1.15, 1],
-    transition: {
-      duration: 1.5,
-      repeat: Infinity,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
-
 const Level100 = () => {
+  const videoHandlers = useVideoPlayer();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const getSpanClass = (item: GridItem) => {
+    if (item.span === "large") return "md:col-span-2";
+    return "col-span-1";
+  };
+
+  const renderMedia = (item: GridItem) => {
+    switch (item.type) {
+      case "video":
+        return (
+          <video
+            src={item.media as string}
+            className="w-full h-full object-cover"
+            controls
+            playsInline
+            {...videoHandlers}
+          />
+        );
+
+      case "image":
+        return (
+          <img
+            src={item.media as string}
+            alt={item.text}
+            className="w-full h-full object-cover"
+          />
+        );
+
+      case "gallery-2":
+        return (
+          <div className="w-full h-full grid grid-cols-2">
+            {(item.media as string[]).map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`${item.text} ${idx + 1}`}
+                className="w-full h-full object-cover"
+              />
+            ))}
+          </div>
+        );
+
+      case "gallery-3":
+        return (
+          <div className="w-full h-full grid grid-cols-3">
+            {(item.media as string[]).map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`${item.text} ${idx + 1}`}
+                className="w-full h-full object-cover"
+              />
+            ))}
+          </div>
+        );
+
+      case "gallery-4":
+        return (
+          <div className="w-full h-full grid grid-cols-2 grid-rows-2">
+            {(item.media as string[]).map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`${item.text} ${idx + 1}`}
+                className="w-full h-full object-cover"
+              />
+            ))}
+          </div>
+        );
+
+      case "stat":
+        return (
+          <div className="w-full h-full bg-neutral-800 flex items-center justify-center p-6 border border-white/10">
+            <p className="text-yellow-400 text-lg md:text-2xl font-bold text-center leading-relaxed">
+              {item.text}
+            </p>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <section id="level-100" className="py-12 px-6 lg:px-12 bg-level-100">
       <motion.div
@@ -77,9 +164,10 @@ const Level100 = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
-        className="max-w-6xl mx-auto"
+        className="max-w-7xl mx-auto"
       >
-        <motion.div variants={itemVariants} className="mb-8 text-center">
+        {/* Header */}
+        <motion.div variants={itemVariants} className="mb-6">
           <span className="text-sm font-medium text-primary tracking-wider uppercase">
             First Year
           </span>
@@ -88,54 +176,34 @@ const Level100 = () => {
           </h2>
         </motion.div>
 
-        <div className="space-y-10">
-          {storyContent.map((row, index) => (
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {gridItems.map((item) => (
             <motion.div
-              key={index}
+              key={item.id}
               variants={itemVariants}
-              className={`flex flex-col ${
-                row.layout === "image-left" 
-                  ? "lg:flex-row" 
-                  : "lg:flex-row-reverse"
-              } gap-8 lg:gap-12 items-center`}
+              className={`${getSpanClass(item)} relative rounded-2xl overflow-hidden shadow-lg group ${
+                item.type === "stat" ? "min-h-[200px]" : "min-h-[280px] md:min-h-[320px]"
+              }`}
             >
-              {/* Image */}
-              <motion.div 
-                className="w-full lg:w-1/2"
+              {/* Media */}
+              {renderMedia(item)}
+
+              {/* Overlay Text (not for stat type) */}
+              {item.type !== "stat" && (
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-12">
+                  <p className="text-white text-sm md:text-base font-medium leading-relaxed">
+                    {item.text}
+                  </p>
+                </div>
+              )}
+
+              {/* Hover Effect */}
+              <motion.div
+                className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
-              >
-                <img
-                  src={row.image}
-                  alt={row.heading}
-                  className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
-                />
-              </motion.div>
-
-              {/* Text */}
-              <div className={`w-full lg:w-1/2 ${
-                row.layout === "image-left" ? "lg:text-left" : "lg:text-right"
-              }`}>
-                <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                  {row.heading}
-                </h3>
-                <p className="text-lg leading-relaxed text-foreground/80">
-                  {row.body}
-                  {row.highlightScore && (
-                    <>
-                      {" "}
-                      <motion.span
-                        variants={pulseVariants}
-                        animate="animate"
-                        className="inline-block text-3xl font-bold text-primary"
-                      >
-                        {row.highlightScore}
-                      </motion.span>
-                      {row.bodyEnd}
-                    </>
-                  )}
-                </p>
-              </div>
+              />
             </motion.div>
           ))}
         </div>

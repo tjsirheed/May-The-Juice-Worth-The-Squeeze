@@ -71,14 +71,14 @@ const HeroSection = ({ onScrollClick }: HeroSectionProps) => {
           transition={{ delay: 1.9, duration: 0.8 }}
           className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white mb-6"
         >
-          <span className="block">May the juice</span>
+          <span className="block">May The Juice</span>
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.3, duration: 0.6 }}
             className="block text-primary font-medium"
           >
-            worth the squeeze
+            Worth The Squeeze
           </motion.span>
         </motion.h1>
 
@@ -88,8 +88,8 @@ const HeroSection = ({ onScrollClick }: HeroSectionProps) => {
           transition={{ delay: 2.5, duration: 0.6 }}
           className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed"
         >
-          Risk nothing, gain nothing. This is my story—a collection of moments,
-          lessons, and memories that shaped who I am today.
+          This is a collection of some moments,
+          lessons, and memories from my undergraduate journey.
         </motion.p>
       </motion.div>
 

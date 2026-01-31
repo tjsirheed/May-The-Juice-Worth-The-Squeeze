@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useAudio } from "@/contexts/AudioContext";
 
-// UPDATED MAPPING
+// UPDATED MAPPING: Song 1 covers everything up to Level 200
 const ZONE_MAP: Record<string, number> = {
   "hero-section": 0, // Plays Song 1
-  "level-100": 1,    // Plays Song 2
-  "level-200": 2,    // Plays Song 3
-  "level-300": 3,    // Plays Song 4
-  "level-400": 3,    // Plays Song 4 (Shared!)
+  "level-100": 0,    // Plays Song 1 (Shared - No fade, just continues)
+  "level-200": 1,    // Plays Song 2
+  "level-300": 2,    // Plays Song 3
+  "level-400": 3,    // Plays Song 4
   "level-500": 4,    // Plays Song 5
 };
 

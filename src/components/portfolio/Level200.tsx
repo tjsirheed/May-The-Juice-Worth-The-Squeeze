@@ -65,7 +65,7 @@ const cards: StoryCard[] = [
     type: "image",
     heading: "SWEP at Taolad 🛠️",
     text: "Manual labour was real here mehn! ",
-    media: "images/level200/swep.jpg",
+    media: "images/level200/swep2.jpg",
   },
   {
     type: "video",
