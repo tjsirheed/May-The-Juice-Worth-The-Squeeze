@@ -1,7 +1,9 @@
+import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer"; // <--- 1. IMPORTED
 import { motion } from "framer-motion";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-type CardType = "image" | "split" | "grid-3" | "grid-5";
+// 👇 2. Added "video" to the allowed types
+type CardType = "image" | "split" | "grid-3" | "grid-5" | "video";
 
 interface StoryCard {
   type: CardType;
@@ -42,7 +44,6 @@ const cards: StoryCard[] = [
       "images/level400/shave4.jpg",
     ],
   },
-  
   {
     type: "split",
     heading: "Power System 2 ⚡",
@@ -75,15 +76,13 @@ const cards: StoryCard[] = [
     ],
     wide: true,
   },
-
   {
     type: "image",
     heading: "Final Year Loading ⏳",
     text: "Looking at final year... Vamos jooor!",
     media: "images/level400/finals.jpg",
   },
-
-    {
+  {
     type: "split",
     heading: "Random Moments 📸",
     text: "400 level IT Defense. Here are some random shots from that day.",
@@ -92,7 +91,6 @@ const cards: StoryCard[] = [
       "images/level400/defense3.jpg",
     ],
   },
-  
 ];
 
 const Level400 = () => {
@@ -158,6 +156,16 @@ const Level400 = () => {
                 transition={{ duration: 0.3 }}
               />
             ))}
+          </div>
+        );
+      // 👇 3. ADDED VIDEO SUPPORT (Future Proofing)
+      case "video":
+        return (
+          <div className="w-full h-64 rounded-xl overflow-hidden relative">
+            <CustomVideoPlayer 
+              src={card.media as string} 
+              className="w-full h-full"
+            />
           </div>
         );
       default:

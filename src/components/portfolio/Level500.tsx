@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useVideoPlayer } from "@/hooks/useVideoPlayer";
+import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer"; // <--- Updated Import
 
 type MediaItem = {
   type: "image" | "video";
@@ -41,14 +41,12 @@ const gridItems: GridItem[] = [
       { type: "video", src: "videos/level500/typeSOS.mp4" },
     ],
   },
-
-    {
+  {
     id: 12,
     type: "video",
     text: "I chest one nice heartbreak along the line sha",
     media: [{ type: "video", src: "videos/level500/break1.mp4" }],
   },
-
   {
     id: 4,
     type: "cluster",
@@ -59,28 +57,18 @@ const gridItems: GridItem[] = [
       { type: "video", src: "videos/level500/video1.mp4" },
     ],
   },
-  
   {
     id: 5,
     type: "video",
     text: "I was very unserious in first semester oooo...",
     media: [{ type: "video", src: "videos/level500/unserious.mp4" }],
   },
-  /*
-  {
-    id: 6,
-    type: "stat",
-    text: "Still had a 4.0 CGPA. God did. 🙏",
-  },
-  */
-
   {
     id: 10,
     type: "image",
     text: "Showed up for SEEES week.",
     media: [{ type: "image", src: "images/level500/week.png" }],
   },
-
   {
     id: 8,
     type: "cluster",
@@ -90,7 +78,6 @@ const gridItems: GridItem[] = [
       { type: "image", src: "images/level500/final2.jpg" },
     ],
   },
-
   {
     id: 7,
     type: "album",
@@ -104,7 +91,6 @@ const gridItems: GridItem[] = [
       "images/level500/Day5.jpg",
     ],
   },
-
   {
     id: 9,
     type: "cluster",
@@ -114,7 +100,6 @@ const gridItems: GridItem[] = [
       { type: "image", src: "images/level500/fest2.jpeg" },
     ],
   },
-  
   {
     id: 18,
     type: "video",
@@ -178,7 +163,6 @@ const gridItems: GridItem[] = [
       "images/level500/new6.jpg",
     ],
   },
-
   {
     id: 11,
     type: "cluster",
@@ -188,7 +172,6 @@ const gridItems: GridItem[] = [
       { type: "image", src: "images/level500/dinner2.jpg" },
     ],
   },
-
   {
     id: 13,
     type: "cluster",
@@ -207,7 +190,6 @@ const gridItems: GridItem[] = [
       { type: "image", src: "images/level500/finally.jpg" },
     ],
   },
-
   {
     id: 16,
     type: "image",
@@ -223,40 +205,12 @@ const gridItems: GridItem[] = [
       { type: "image", src: "images/level500/ball2.jpg" },
     ],
   },
-    /*
-  {
-    id: 25,
-    type: "video",
-    text: "Undergraduates should listen to this!",
-    media: [{ type: "video", src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" }],
-  },
-  {
-    id: 26,
-    type: "video",
-    text: "Grateful to everyone that played a part.",
-    media: [{ type: "video", src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" }],
-  },
-  {
-    id: 27,
-    type: "video",
-    text: "My turn to be a Graduate Engineer!",
-    media: [{ type: "video", src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" }],
-  },
-
-  {
-    id: 28,
-    type: "image",
-    text: "From full hair to low cuts.",
-    media: [{ type: "image", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" }],
-  },
-  */
   {
     id: 15,
     type: "video",
     text: "It's all by HIS grace.",
     media: [{ type: "video", src: "videos/level500/thanks.mp4" }],
   },
-  
   {
     id: 29,
     type: "video",
@@ -264,13 +218,11 @@ const gridItems: GridItem[] = [
     media: [{ type: "video", src: "videos/level500/bye.mp4" }],
     wide: true,
   },
-
 ];
 
 const Level500 = () => {
   const [selectedAlbum, setSelectedAlbum] = useState<string[] | null>(null);
   const [albumIndex, setAlbumIndex] = useState(0);
-  const videoHandlers = useVideoPlayer();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -366,12 +318,10 @@ const Level500 = () => {
     if (item.type === "video" && item.media) {
       return (
         <div className="relative w-full h-full min-h-[250px] group">
-          <video
+          {/* 👇 Using CustomVideoPlayer */}
+          <CustomVideoPlayer 
             src={item.media[0].src}
-            controls
-            className="w-full h-full object-cover"
-            preload="metadata"
-            {...videoHandlers}
+            className="w-full h-full"
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12 pointer-events-none">
             <p className="text-white text-sm md:text-base font-medium">
@@ -402,13 +352,13 @@ const Level500 = () => {
                   />
                 ))}
               </div>
-              <video
-                src={videos[0].src}
-                controls
-                className="w-full h-full object-cover"
-                preload="metadata"
-                {...videoHandlers}
-              />
+              {/* 👇 Using CustomVideoPlayer in cluster */}
+              <div className="w-full h-full relative">
+                 <CustomVideoPlayer 
+                   src={videos[0].src}
+                   className="w-full h-full"
+                 />
+              </div>
             </div>
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12 pointer-events-none">
               <p className="text-white text-sm md:text-base font-medium">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useVideoPlayer } from "@/hooks/useVideoPlayer";
+import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer"; // <--- 1. NEW IMPORT
 
 interface GridItem {
   id: number;
@@ -15,7 +15,7 @@ const gridItems: GridItem[] = [
     type: "image",
     media: "images/level100/level1.jpg",
     text: "Masked Up Szn 😷. Covid-19 was still a thing at the time.",
-    span: "large", // I made this large to anchor the grid
+    span: "large",
   },
   {
     id: 2,
@@ -24,15 +24,6 @@ const gridItems: GridItem[] = [
     text: "Virtual classes? I settled for 4-Point Makers tutorials instead. Iykyk.",
     span: "large",
   },
-
-  /*
-  {
-    id: 3,
-    type: "stat",
-    text: "4.0 GPA First Semester. Go hard or go home! 🚀",
-  },
-  */
-
   {
     id: 4,
     type: "image",
@@ -57,7 +48,7 @@ const gridItems: GridItem[] = [
 ];
 
 const Level100 = () => {
-  const videoHandlers = useVideoPlayer();
+  // Removed unused videoHandlers hook
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,13 +73,11 @@ const Level100 = () => {
   const renderMedia = (item: GridItem) => {
     switch (item.type) {
       case "video":
+        // 👇 2. UPDATED VIDEO PLAYER LOGIC
         return (
-          <video
-            src={item.media as string}
-            className="w-full h-full object-cover"
-            controls
-            playsInline
-            {...videoHandlers}
+          <CustomVideoPlayer 
+            src={item.media as string} 
+            className="w-full h-full"
           />
         );
 
@@ -191,7 +180,10 @@ const Level100 = () => {
 
               {/* Overlay Text (not for stat type) */}
               {item.type !== "stat" && (
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-12">
+                <div 
+                  // 👇 3. ADDED pointer-events-none TO ALLOW CLICKING
+                  className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-12 pointer-events-none"
+                >
                   <p className="text-white text-sm md:text-base font-medium leading-relaxed">
                     {item.text}
                   </p>
@@ -200,7 +192,8 @@ const Level100 = () => {
 
               {/* Hover Effect */}
               <motion.div
-                className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"
+                // 👇 4. ADDED pointer-events-none HERE TOO
+                className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               />

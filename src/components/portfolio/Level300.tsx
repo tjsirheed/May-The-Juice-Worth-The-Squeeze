@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useVideoPlayer } from "@/hooks/useVideoPlayer";
+import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer"; // <--- 1. Imported Custom Player
 
 interface GridItem {
   id: number;
@@ -15,44 +15,30 @@ const gridItems: GridItem[] = [
     type: "image",
     media: "images/level300/image1.jpg",
     text: "God abeg",
-    //span: "large",
   },
   {
     id: 2,
     type: "video",
     media: "videos/level300/video1.mp4",
     text: "At first, everything was about to scatter for real 😫",
-    
   },
-  //{
-  //  id: 3,
-  //  type: "stat",
-  //  text: "Stat Check: Countless amounts of Fearless Energy Drink consumed. ⚡️",
-  //},
   {
     id: 4,
     type: "image",
-    media: [
-      "images/level300/image3.jpg",
-    ],
+    media: ["images/level300/image3.jpg"],
     text: "Anyways, May The Juice Worth The Squeeze. ",
   },
   {
     id: 5,
     type: "gallery-2",
-    media: [
-      "images/level300/web3.jpg",
-      "images/level300/webb3.jpg",
-    ],
+    media: ["images/level300/web3.jpg", "images/level300/webb3.jpg"],
     text: "I was really grinding Web3 here. Good old days mehn!",
     span: "large",
   },
   {
     id: 6,
     type: "image",
-    media: [
-      "images/level300/awo.jpg",
-    ],
+    media: ["images/level300/awo.jpg"],
     text: "Shot a video at Awo court and the project ghosted us later. ",
   },
   {
@@ -81,60 +67,32 @@ const gridItems: GridItem[] = [
   {
     id: 10,
     type: "image",
-    media: [
-      "images/level300/loya.jpg",
-
-    ],
+    media: ["images/level300/loya.jpg"],
     text: "Second semester exams really tested me but I survived it all",
   },
-
-  //{
-    //id: 11,
-    //type: "image",
-    //media: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=600&h=800&fit=crop",
-    //text: "Best results so far. 4.0 First Semester. Go hard or go home! 🚀",
-    //span: "large",
-  //},
-
   {
     id: 12,
     type: "gallery-2",
-    media: [
-      "images/level300/new1.jpg",
-      "images/level300/new2.jpg",
-    ],
+    media: ["images/level300/new1.jpg", "images/level300/new2.jpg"],
     text: "99% Faith, 1% Chance. AlhamduliLlah. 🙏",
-    //span: "large",
   },
-    {
+  {
     id: 15,
     type: "video",
     media: "videos/level300/dance.mp4",
     text: "Dinner time? Trust me, it was fun. 🕺",
-    //span: "large",
   },
-    {
+  {
     id: 14,
     type: "gallery-2",
-    media: [
-      "images/level300/defense1.jpg",
-      "images/level300/defense2.jpg",
-    ],
+    media: ["images/level300/defense1.jpg", "images/level300/defense2.jpg"],
     text: "300 Level SIWES Defense ✅",
     span: "large",
   },
-  //{
-  //  id: 14,
-  //  type: "video",
-  //  media: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-  //  text: "Dinner time? Trust me, it was fun. 🍽️",
-  //  span: "large",
-  //},
-
 ];
 
 const Level300 = () => {
-  const videoHandlers = useVideoPlayer();
+  // Note: No need for videoHandlers or useAudio here anymore!
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -159,13 +117,11 @@ const Level300 = () => {
   const renderMedia = (item: GridItem) => {
     switch (item.type) {
       case "video":
+        // 👇 2. UPDATED: Using the new Custom Component
         return (
-          <video
+          <CustomVideoPlayer 
             src={item.media as string}
-            className="w-full h-full object-cover"
-            controls
-            playsInline
-            {...videoHandlers}
+            className="w-full h-full"
           />
         );
 
@@ -260,7 +216,9 @@ const Level300 = () => {
               key={item.id}
               variants={itemVariants}
               className={`${getSpanClass(item)} relative rounded-2xl overflow-hidden shadow-lg group ${
-                item.type === "stat" ? "min-h-[200px]" : "min-h-[280px] md:min-h-[320px]"
+                item.type === "stat"
+                  ? "min-h-[200px]"
+                  : "min-h-[280px] md:min-h-[320px]"
               }`}
             >
               {/* Media */}
@@ -268,7 +226,10 @@ const Level300 = () => {
 
               {/* Overlay Text (not for stat type) */}
               {item.type !== "stat" && (
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-12">
+                <div
+                  // 👇 3. KEEPING THIS: Allows clicks to pass through text
+                  className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-12 pointer-events-none"
+                >
                   <p className="text-white text-sm md:text-base font-medium leading-relaxed">
                     {item.text}
                   </p>
@@ -277,7 +238,8 @@ const Level300 = () => {
 
               {/* Hover Effect */}
               <motion.div
-                className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"
+                // 👇 4. KEEPING THIS: Allows clicks to pass through hover effect
+                className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               />

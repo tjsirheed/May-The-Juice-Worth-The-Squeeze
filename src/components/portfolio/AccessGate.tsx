@@ -56,7 +56,7 @@ const AccessGate = ({ onUnlock }: AccessGateProps) => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop')`,
+              backgroundImage: `url('images/newone.jpg')`,
             }}
           />
           

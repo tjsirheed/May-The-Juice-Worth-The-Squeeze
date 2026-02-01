@@ -6,48 +6,49 @@ interface HeroSectionProps {
 }
 
 const sliceImages = [
-  "/images/hero/hero-1.jpg",
-  "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=900&fit=crop",
-  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=900&fit=crop",
+  "/images/hero/hero1.jpg",
+  "/images/hero/hero2.jpg",
 ];
 
 const sliceAnimations = [
-  // First Slice: Slide up from bottom
+  // First Slice (Left Image): Slide up from bottom
   { initial: { y: "100%", opacity: 0 }, animate: { y: 0, opacity: 1 } },
-  // Second Slice: Zoom out effect
-  { initial: { scale: 1.5, opacity: 0 }, animate: { scale: 1, opacity: 1 } },
-  // Third Slice: Slide in from the right
-  { initial: { x: "100%", opacity: 0 }, animate: { x: 0, opacity: 1 } },
+  // Second Slice (Right Image): Slide down from top (Or zoom if you prefer)
+  { initial: { y: "-100%", opacity: 0 }, animate: { y: 0, opacity: 1 } },
 ];
 
 const HeroSection = ({ onScrollClick }: HeroSectionProps) => {
   return (
     <section id="hero-section" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+      
       {/* Background Image Slices */}
-      <div className="absolute inset-0 z-0 grid grid-cols-3">
+      {/* 👇 FIX: Changed from grid-cols-3 to grid-cols-2 👇 */}
+      <div className="absolute inset-0 z-0 grid grid-cols-2">
         {sliceImages.map((image, index) => (
           <motion.div
             key={index}
             initial={sliceAnimations[index].initial}
             animate={sliceAnimations[index].animate}
             transition={{
-              duration: 1.2,
-              delay: index * 0.15,
-              ease: "easeOut",
+              duration: 1.5, // Increased slightly for smoother split effect
+              delay: 0.2,    // Small delay so page loads first
+              ease: [0.25, 1, 0.5, 1], // "Bezier" curve for a premium feel
             }}
             className="relative h-full overflow-hidden"
           >
             <img
               src={image}
               alt={`Background slice ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-top object-cover"
             />
+            {/* Optional: Add a subtle gradient to each slice to blend them better */}
+            <div className="absolute inset-0 bg-black/20" />
           </motion.div>
         ))}
       </div>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 z-10 bg-black/60" />
+      {/* Dark Overlay - Keeps text readable */}
+      <div className="absolute inset-0 z-10 bg-black/40" />
 
       {/* Main Content */}
       <motion.div

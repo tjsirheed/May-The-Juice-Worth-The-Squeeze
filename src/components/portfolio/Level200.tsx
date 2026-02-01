@@ -1,6 +1,6 @@
+import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer";
 import { motion } from "framer-motion";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { useVideoPlayer } from "@/hooks/useVideoPlayer";
 
 type CardType = "image" | "gallery-4" | "gallery-2" | "video";
 
@@ -57,9 +57,7 @@ const cards: StoryCard[] = [
     type: "image",
     heading: "SEEES Dinner",
     text: "I got awards for the most influential & most Likely to Practice Engineering in 200 level.",
-    media: [
-      "images/level200/dinner-image.jpg",
-    ],
+    media: ["images/level200/dinner-image.jpg"],
   },
   {
     type: "image",
@@ -82,8 +80,6 @@ const cards: StoryCard[] = [
 ];
 
 const Level200 = () => {
-  const videoHandlers = useVideoPlayer();
-  
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -136,14 +132,12 @@ const Level200 = () => {
           </div>
         );
       case "video":
+        // 👇 UPDATED: Using CustomVideoPlayer here
         return (
-          <div className="w-full h-64 rounded-xl overflow-hidden">
-            <video
-              src={card.media as string}
-              className="w-full h-full object-cover"
-              controls
-              playsInline
-              {...videoHandlers}
+          <div className="w-full h-64 rounded-xl overflow-hidden relative">
+            <CustomVideoPlayer 
+              src={card.media as string} 
+              className="w-full h-full"
             />
           </div>
         );
