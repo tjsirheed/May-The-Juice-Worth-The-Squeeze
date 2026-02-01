@@ -380,7 +380,7 @@ const renderMedia = (item: GridItem) => {
 
     return null;
   };
-  
+
   return (
     <section id="level-500" className="py-12 px-6 lg:px-12 bg-level-500">
       <motion.div
@@ -391,7 +391,7 @@ const renderMedia = (item: GridItem) => {
         className="max-w-7xl mx-auto"
       >
         <motion.div variants={itemVariants} className="mb-6 text-center">
-          <span className="text-sm text-lg md:text-3xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
+          <span className="text-sm text-lg md:text-5xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
             Fifth Year
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">

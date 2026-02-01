@@ -182,12 +182,10 @@ const Level400 = () => {
         transition={{ duration: 0.6 }}
         className="mb-6"
       >
-        <span className="text-sm font-medium text-primary tracking-wider uppercase">
+        <span className="text-sm text-lg md:text-5xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
           Fourth Year
         </span>
-        <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
-          The Final Stretch
-        </h2>
+
       </motion.div>
 
       {/* Horizontal Scroll Area */}

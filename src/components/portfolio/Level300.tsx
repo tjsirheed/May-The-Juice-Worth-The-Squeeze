@@ -201,12 +201,9 @@ const Level300 = () => {
       >
         {/* Header */}
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="text-sm text-lg md:text-3xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
+          <span className="text-sm text-lg md:text-5xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
             Third Year
           </span>
-          <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
-            
-          </h2>
         </motion.div>
 
         {/* Bento Grid */}
