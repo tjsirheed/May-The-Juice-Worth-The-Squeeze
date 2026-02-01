@@ -15,7 +15,7 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "Which way like this? 🤔",
-    text: "8-month strike just after resumption. What do we do now?",
+    text: "8-month strike just after resumption.\n What do we do now?",
     media: "images/level200/image-1.jpg",
   },
   {
@@ -44,7 +44,7 @@ const cards: StoryCard[] = [
   {
     type: "video",
     heading: "MAT223 📉",
-    text: "Analysis for Non-majors? Never again!",
+    text: "Analysis for Non-majors? \n Never again!",
     media: "videos/level200/video-1.mp4",
   },
   {
@@ -74,8 +74,8 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "200L Defense ✅",
-    text: "Fine boy. AlhamduliLlahi for a successful session.",
-    media: "images/level200/defense.jpg",
+    text: "AlhamduliLlahi for a successful session.",
+    media: "images/level200/defense1.jpg",
   },
 ];
 
@@ -156,11 +156,11 @@ const Level200 = () => {
         transition={{ duration: 0.6 }}
         className="mb-6"
       >
-        <span className="text-sm font-medium text-primary tracking-wider uppercase">
+        <span className="text-sm text-lg md:text-3xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
           Second Year
         </span>
         <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
-          Finding My Footing
+          
         </h2>
       </motion.div>
 
@@ -184,7 +184,7 @@ const Level200 = () => {
                 <h3 className="font-semibold text-xl text-foreground mb-3">
                   {card.heading}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
                   {card.text}
                 </p>
               </div>

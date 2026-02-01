@@ -7,7 +7,7 @@ interface HeroSectionProps {
 
 const sliceImages = [
   "/images/hero/hero1.jpg",
-  "/images/hero/hero2.jpg",
+  "/images/hero/Aupage.jpg",
 ];
 
 const sliceAnimations = [

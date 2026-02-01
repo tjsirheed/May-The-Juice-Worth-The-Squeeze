@@ -32,7 +32,7 @@ const gridItems: GridItem[] = [
     id: 5,
     type: "gallery-2",
     media: ["images/level300/web3.jpg", "images/level300/webb3.jpg"],
-    text: "I was really grinding Web3 here. Good old days mehn!",
+    text: "I was really grinding Web3 here. \n Good old days mehn!",
     span: "large",
   },
   {
@@ -74,13 +74,13 @@ const gridItems: GridItem[] = [
     id: 12,
     type: "gallery-2",
     media: ["images/level300/new1.jpg", "images/level300/new2.jpg"],
-    text: "99% Faith, 1% Chance. AlhamduliLlah. 🙏",
+    text: "99% Faith, 1% Chance. \n AlhamduliLlah. 🙏",
   },
   {
     id: 15,
     type: "video",
     media: "videos/level300/dance.mp4",
-    text: "Dinner time? Trust me, it was fun. 🕺",
+    text: "Dinner time? \n Trust me, it was fun. 🕺",
   },
   {
     id: 14,
@@ -201,11 +201,11 @@ const Level300 = () => {
       >
         {/* Header */}
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="text-sm font-medium text-primary tracking-wider uppercase">
+          <span className="text-sm text-lg md:text-3xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
             Third Year
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
-            Growth & Lessons
+            
           </h2>
         </motion.div>
 
@@ -230,7 +230,7 @@ const Level300 = () => {
                   // 👇 3. KEEPING THIS: Allows clicks to pass through text
                   className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-12 pointer-events-none"
                 >
-                  <p className="text-white text-sm md:text-base font-medium leading-relaxed">
+                  <p className="text-white text-sm md:text-base font-medium leading-relaxed whitespace-pre-line">
                     {item.text}
                   </p>
                 </div>

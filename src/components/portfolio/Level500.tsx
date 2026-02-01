@@ -94,7 +94,7 @@ const gridItems: GridItem[] = [
   {
     id: 9,
     type: "cluster",
-    text: "Final exams next week? Still showed up for the best tech event in Ibadan.",
+    text: "Final exams next week? \n Still showed up for the best tech event in Ibadan.",
     media: [
       { type: "image", src: "images/level500/fest1.jpeg" },
       { type: "image", src: "images/level500/fest2.jpeg" },
@@ -103,7 +103,7 @@ const gridItems: GridItem[] = [
   {
     id: 18,
     type: "video",
-    text: "Project Palava?",
+    text: "Project Wahala?",
     media: [{ type: "video", src: "videos/level500/red.mp4" }],
   },
   {
@@ -121,7 +121,7 @@ const gridItems: GridItem[] = [
   {
     id: 21,
     type: "image",
-    text: "I was so tired at a point. Can't we just wrap up this degree",
+    text: "I was so tired at a point. \n Can't we just wrap up this degree",
     media: [
       { type: "image", src: "images/level500/tired2.jpg" },
     ],
@@ -129,7 +129,7 @@ const gridItems: GridItem[] = [
   {
     id: 22,
     type: "image",
-    text: "Two days to defense and project is not working? 94 minutes defeat? Never!",
+    text: "Two days to defense and project is not working? \n 94 minutes defeat? Never!",
     media: [
       { type: "image", src: "images/level500/tired1.jpg" },
     ],
@@ -214,7 +214,7 @@ const gridItems: GridItem[] = [
   {
     id: 29,
     type: "video",
-    text: "I will leave with this. 👋",
+    text: "I will leave with this. 👋 \n AlhamduliLlah!",
     media: [{ type: "video", src: "videos/level500/bye.mp4" }],
     wide: true,
   },
@@ -256,11 +256,14 @@ const Level500 = () => {
     }
   };
 
-  const renderMedia = (item: GridItem) => {
+const renderMedia = (item: GridItem) => {
+    // 👇 DEFINED HERE: Normal size, Medium weight, with New Line support
+    const textClasses = "text-white text-sm md:text-base font-medium whitespace-pre-line";
+
     if (item.type === "stat") {
       return (
         <div className="w-full h-full min-h-[200px] bg-yellow-500 flex items-center justify-center p-6">
-          <p className="text-black text-xl md:text-2xl font-bold text-center leading-tight">
+          <p className="text-black text-xl md:text-2xl font-bold text-center leading-tight whitespace-pre-line">
             {item.text}
           </p>
         </div>
@@ -273,7 +276,6 @@ const Level500 = () => {
           onClick={() => handleAlbumOpen(item.albumImages!)}
           className="relative w-full h-full min-h-[250px] group cursor-pointer"
         >
-          {/* Stacked photos effect */}
           <div className="absolute inset-2 bg-white/20 rounded-lg transform rotate-3" />
           <div className="absolute inset-2 bg-white/30 rounded-lg transform -rotate-2" />
           <img
@@ -281,16 +283,12 @@ const Level500 = () => {
             alt={item.text}
             className="relative w-full h-full object-cover rounded-lg"
           />
-          {/* Badge */}
           <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 z-10">
             <Layers className="w-3 h-3" />
             +{item.albumImages.length - 1} More
           </div>
-          {/* Text Overlay */}
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12 rounded-b-lg">
-            <p className="text-white text-sm md:text-base font-medium">
-              {item.text}
-            </p>
+            <p className={textClasses}>{item.text}</p>
           </div>
           <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300 rounded-lg" />
         </button>
@@ -306,9 +304,7 @@ const Level500 = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12">
-            <p className="text-white text-sm md:text-base font-medium">
-              {item.text}
-            </p>
+            <p className={textClasses}>{item.text}</p>
           </div>
           <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
         </div>
@@ -318,15 +314,12 @@ const Level500 = () => {
     if (item.type === "video" && item.media) {
       return (
         <div className="relative w-full h-full min-h-[250px] group">
-          {/* 👇 Using CustomVideoPlayer */}
           <CustomVideoPlayer 
             src={item.media[0].src}
             className="w-full h-full"
           />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12 pointer-events-none">
-            <p className="text-white text-sm md:text-base font-medium">
-              {item.text}
-            </p>
+            <p className={textClasses}>{item.text}</p>
           </div>
         </div>
       );
@@ -338,7 +331,6 @@ const Level500 = () => {
       const videos = item.media.filter((m) => m.type === "video");
 
       if (hasVideo && item.media.length === 3) {
-        // 2 images + 1 video layout
         return (
           <div className="relative w-full h-full min-h-[300px] group">
             <div className="grid grid-cols-2 gap-1 h-full">
@@ -352,7 +344,6 @@ const Level500 = () => {
                   />
                 ))}
               </div>
-              {/* 👇 Using CustomVideoPlayer in cluster */}
               <div className="w-full h-full relative">
                  <CustomVideoPlayer 
                    src={videos[0].src}
@@ -361,15 +352,12 @@ const Level500 = () => {
               </div>
             </div>
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12 pointer-events-none">
-              <p className="text-white text-sm md:text-base font-medium">
-                {item.text}
-              </p>
+              <p className={textClasses}>{item.text}</p>
             </div>
           </div>
         );
       }
 
-      // Split view (2 images)
       return (
         <div className="relative w-full h-full min-h-[200px] group">
           <div className="flex gap-1 h-full">
@@ -383,9 +371,7 @@ const Level500 = () => {
             ))}
           </div>
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 pt-12">
-            <p className="text-white text-sm md:text-base font-medium">
-              {item.text}
-            </p>
+            <p className={textClasses}>{item.text}</p>
           </div>
           <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
         </div>
@@ -394,7 +380,7 @@ const Level500 = () => {
 
     return null;
   };
-
+  
   return (
     <section id="level-500" className="py-12 px-6 lg:px-12 bg-level-500">
       <motion.div
@@ -405,7 +391,7 @@ const Level500 = () => {
         className="max-w-7xl mx-auto"
       >
         <motion.div variants={itemVariants} className="mb-6 text-center">
-          <span className="text-sm font-medium text-primary tracking-wider uppercase">
+          <span className="text-sm text-lg md:text-3xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
             Fifth Year
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">

@@ -14,35 +14,35 @@ const gridItems: GridItem[] = [
     id: 1,
     type: "image",
     media: "images/level100/level1.jpg",
-    text: "Masked Up Szn 😷. Covid-19 was still a thing at the time.",
+    text: "First Picture on campus. \n Masked Up Szn 😷.",
     span: "large",
   },
   {
     id: 2,
     type: "image",
     media: "images/level100/fine2.jpg",
-    text: "Virtual classes? I settled for 4-Point Makers tutorials instead. Iykyk.",
+    text: "Virtual classes? \n I settled for 4-Point Makers tutorials instead. Iykyk.",
     span: "large",
   },
   {
     id: 4,
     type: "image",
     media: "images/level100/tdb.jpg",
-    text: "TDB? If I were to do this degree again, I wouldn't do that intense TDB drill.",
+    text: "My honest take on TBD in 100 level? \n If I were to do this degree again, I wouldn't do that intense TDB drill.",
     span: "large",
   },
   {
     id: 5,
     type: "image",
     media: "images/level100/vote.jpg",
-    text: "Orientation Programme: I tried to mimic a character, ended up looking like an aspiring politician 😂",
+    text: "I tried to mimic a character and ended up looking like an aspiring politician 😂",
     span: "large",
   },
   {
     id: 6,
     type: "image",
     media: "images/level100/win.jpg",
-    text: "Limit your TDB guys! I was sick for PHY102 exams but still pulled through.",
+    text: "Limit your TDB guys! \n I was sick for PHY102 exams but still pulled through.",
     span: "large",
   },
 ];
@@ -157,11 +157,11 @@ const Level100 = () => {
       >
         {/* Header */}
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="text-sm font-medium text-primary tracking-wider uppercase">
+          <span className="text-sm text-lg md:text-3xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
             First Year
           </span>
           <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
-            The Beginning
+            
           </h2>
         </motion.div>
 
@@ -184,7 +184,7 @@ const Level100 = () => {
                   // 👇 3. ADDED pointer-events-none TO ALLOW CLICKING
                   className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-12 pointer-events-none"
                 >
-                  <p className="text-white text-sm md:text-base font-medium leading-relaxed">
+                  <p className="text-white text-sm md:text-base font-medium leading-relaxed whitespace-pre-line">
                     {item.text}
                   </p>
                 </div>
