@@ -157,7 +157,7 @@ const Level100 = () => {
       >
         {/* Header */}
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="text-sm text-lg md:text-5xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
+          <span className="text-sm text-lg md:text-8xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
             First Year
           </span>
 
