@@ -1,6 +1,8 @@
 import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer";
 import { motion } from "framer-motion";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+
 
 type CardType = "image" | "gallery-4" | "gallery-2" | "video";
 
@@ -194,30 +196,36 @@ const Level200 = () => {
         <ScrollBar orientation="horizontal" className="mt-2" />
       </ScrollArea>
 
-      {/* Scroll Hint */}
+{/* High Visibility Scroll Hint */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="flex items-center justify-center gap-3 mt-8"
+        className="flex items-center justify-center gap-4 mt-10 pb-8"
       >
-        <motion.span
-          animate={{ x: [-3, 3, -3] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-primary text-lg"
+        {/* Left Arrow Animation */}
+        <motion.div
+          animate={{ x: [-5, 5, -5], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          ←
-        </motion.span>
-        <span className="text-base font-medium text-foreground/80 bg-primary/10 px-4 py-2 rounded-full">
-          Swipe to explore my second year journey
-        </span>
-        <motion.span
-          animate={{ x: [3, -3, 3] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-primary text-lg"
+          <ArrowLeft className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
+        </motion.div>
+
+        {/* The "Loud" Button */}
+        <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-200"></div>
+            <span className="relative flex items-center text-sm md:text-lg font-black text-black bg-yellow-400 px-8 py-3 rounded-full tracking-widest uppercase shadow-xl">
+              SWIPE FOR MORE
+            </span>
+        </div>
+
+        {/* Right Arrow Animation */}
+        <motion.div
+          animate={{ x: [-5, 5, -5], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          →
-        </motion.span>
+          <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
+        </motion.div>
       </motion.div>
     </section>
   );

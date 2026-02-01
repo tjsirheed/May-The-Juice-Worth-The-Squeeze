@@ -1,8 +1,8 @@
-import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer"; // <--- 1. IMPORTED
+import CustomVideoPlayer from "@/components/portfolio/CustomVideoPlayer";
 import { motion } from "framer-motion";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ArrowLeft, ArrowRight } from "lucide-react"; // <--- 1. NEW IMPORTS
 
-// 👇 2. Added "video" to the allowed types
 type CardType = "image" | "split" | "grid-3" | "grid-5" | "video";
 
 interface StoryCard {
@@ -17,19 +17,19 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "400 Level Mehn! 🤯",
-    text: "I took 8 courses with 4 practicals. \n What do you mean I have to write 4 reports in a week?",
+    text: "I took 8 courses with 4 practicals. What do you mean I have to write 4 reports in a week?",
     media: "images/level400/image1.jpg",
   },
   {
     type: "image",
-    heading: "Zoological Garden ",
+    heading: "Zoological Garden 🦁",
     text: "This was my first time at the Zoo.",
     media: "images/level400/zoo.jpg",
   },
   {
     type: "split",
     heading: "Last Skin? 😅",
-    text: "That stage when you barb last skin? \n Yeah, that happened.",
+    text: "That stage when you barb last skin? Yeah, that happened.",
     media: [
       "images/level400/shave1.jpg",
       "images/level400/shave2.jpg",
@@ -46,8 +46,8 @@ const cards: StoryCard[] = [
   },
   {
     type: "split",
-    heading: "Power System 2 ",
-    text: "Just finished the exam here. \n It was... breathtaking (and not in a good way).",
+    heading: "Power System 2 ⚡",
+    text: "Just finished the exam here. It was... breathtaking (and not in a good way).",
     media: [
       "images/level400/PS1.jpg",
       "images/level400/PS2.jpg",
@@ -56,19 +56,19 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "Awba Dam 🌊",
-    text: "Fun time at the dam. \n Her view tho.",
+    text: "Fun time at the dam. Her view tho.",
     media: "images/level400/awba.jpg",
   },
   {
     type: "image",
     heading: "TESA Conference 👔",
-    text: "Showed up again. \n Never missed one since 200 Level.",
+    text: "Showed up again. Never missed one since 200 Level.",
     media: "images/level400/conf.jpg",
   },
   {
     type: "grid-3",
-    heading: "IT at VAAV Innovative Solutions",
-    text: "Evidence dey ",
+    heading: "IT at VAAV Solutions 💻",
+    text: "Work mode activated. Building real things.",
     media: [
       "images/level400/IT1.jpg",
       "images/level400/IT3.jpg",
@@ -79,13 +79,13 @@ const cards: StoryCard[] = [
   {
     type: "image",
     heading: "Final Year Loading ⏳",
-    text: "Looking at final year... \n Vamos jooor!",
+    text: "Looking at final year... Vamos jooor!",
     media: "images/level400/finals.jpg",
   },
   {
     type: "split",
-    heading: "Random Moments",
-    text: "400 level IT Defense. \n Here are some random shots from that day.",
+    heading: "Random Moments 📸",
+    text: "400 level IT Defense. Here are some random shots from that day.",
     media: [
       "images/level400/defense4.jpg",
       "images/level400/defense3.jpg",
@@ -158,7 +158,6 @@ const Level400 = () => {
             ))}
           </div>
         );
-      // 👇 3. ADDED VIDEO SUPPORT (Future Proofing)
       case "video":
         return (
           <div className="w-full h-64 rounded-xl overflow-hidden relative">
@@ -183,11 +182,11 @@ const Level400 = () => {
         transition={{ duration: 0.6 }}
         className="mb-6"
       >
-        <span className="text-sm text-lg md:text-3xl font-bold text-primary drop-shadow-md tracking-wider uppercase">
+        <span className="text-sm font-medium text-primary tracking-wider uppercase">
           Fourth Year
         </span>
         <h2 className="text-3xl md:text-5xl font-light mt-2 text-foreground">
-          
+          The Final Stretch
         </h2>
       </motion.div>
 
@@ -213,7 +212,7 @@ const Level400 = () => {
                 <h3 className="font-semibold text-xl text-foreground mb-3">
                   {card.heading}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <p className="text-muted-foreground leading-relaxed">
                   {card.text}
                 </p>
               </div>
@@ -223,30 +222,36 @@ const Level400 = () => {
         <ScrollBar orientation="horizontal" className="mt-2" />
       </ScrollArea>
 
-      {/* Scroll Hint */}
+      {/* High Visibility Scroll Hint (Replaced Old Text) */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="flex items-center justify-center gap-3 mt-8"
+        className="flex items-center justify-center gap-4 mt-10 pb-8"
       >
-        <motion.span
-          animate={{ x: [-3, 3, -3] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-primary text-lg"
+        {/* Left Arrow Animation */}
+        <motion.div
+          animate={{ x: [-5, 5, -5], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          ←
-        </motion.span>
-        <span className="text-base font-medium text-foreground/80 bg-primary/10 px-4 py-2 rounded-full">
-          Swipe to explore my fourth year journey
-        </span>
-        <motion.span
-          animate={{ x: [3, -3, 3] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-primary text-lg"
+          <ArrowLeft className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
+        </motion.div>
+
+        {/* The "Loud" Button */}
+        <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-200"></div>
+            <span className="relative flex items-center text-sm md:text-lg font-black text-black bg-yellow-400 px-8 py-3 rounded-full tracking-widest uppercase shadow-xl">
+              SWIPE FOR MORE
+            </span>
+        </div>
+
+        {/* Right Arrow Animation */}
+        <motion.div
+          animate={{ x: [-5, 5, -5], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          →
-        </motion.span>
+          <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
+        </motion.div>
       </motion.div>
     </section>
   );

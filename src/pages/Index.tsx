@@ -13,18 +13,12 @@ import Level400 from "@/components/portfolio/Level400";
 import Level500 from "@/components/portfolio/Level500";
 import AccessGate from "@/components/portfolio/AccessGate";
 
-/*
+
 const Index = () => {
   const [activeLevel, setActiveLevel] = useState(100);
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem("portfolio_unlocked") === "true";
   });
-*/
-
-const Index = () => {
-  const [activeLevel, setActiveLevel] = useState(100);
-  const [isAuthenticated, setIsAuthenticated] = useState(false); 
-
 
   const handleLevelClick = useCallback((level: number) => {
     const element = document.getElementById(`level-${level}`);
